@@ -43,30 +43,30 @@ import sys
 
 def build_dict(filename):
    f = open(filename, 'rU')
-   words = f.read().split()
+   words = f.read().split()					# Read file into a list of strings split at whitespaces
    count = {}
 
-   for word in words:								# Construct a dictionary with words assigned to appearances
+   for word in words:						# Construct a dictionary with words assigned to appearances
        word = word.lower()
        if word not in count:
            count[word] = 1
        else:
            count[word] += 1
    f.close()	
-   tupleCount = count.items()						# Put dictionary into a list of tuples that can be sorted. 
+   tupleCount = count.items()					# Put dictionary into a list of tuples that can be sorted. 
    return tupleCount
 
 def print_words(filename):
 	tupleCount = build_dict(filename)
-	tupleCount.sort(key=lambda x:x[0]) 				# Sort the list of tuples by first tuple parameter (in this case the strings)
-	for i in range(1,len(tupleCount)):
+	tupleCount.sort(key=lambda x:x[0]) 			# Sort the list of tuples by first tuple parameter (in this case the strings)
+	for i in range(1,len(tupleCount)):			# Loop over list of tuples and print them as two variables. 	
 		(a, b) = tupleCount[i]
 		print a + ' ' + str(b) 
 		
 def print_top(filename):
 	tupleCount = build_dict(filename)
-	tupleCount.sort(key=lambda x:x[1], reverse=True)
-	for i in range(20):
+	tupleCount.sort(key=lambda x:x[1], reverse=True)	# Sort the list of tuples by second tuple parameter ( in this case the appearance count integer)
+	for i in range(20):					# Loop over first 20 iterations of the newly sorted list of tuples to print 20 most occuring strings. 
 		(a, b) = tupleCount[i]
 		print a + ' ' + str(b)
 	
