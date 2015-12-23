@@ -65,7 +65,7 @@ def print_words(filename):
 		
 def print_top(filename):
 	tupleCount = build_dict(filename)
-	tupleCount.sort(key=lambda x:x[1], reverse=True)	# Sort the list of tuples by second tuple parameter ( in this case the appearance count integer)
+	tupleCount.sort(key=lambda x:x[1], reverse=True)		# Sort the list of tuples by second tuple parameter ( in this case the appearance count integer)
 	for i in range(20):					# Loop over first 20 iterations of the newly sorted list of tuples to print 20 most occuring strings. 
 		(a, b) = tupleCount[i]
 		print a + ' ' + str(b)
